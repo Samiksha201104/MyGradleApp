@@ -19,21 +19,19 @@ pipeline {
         }
 
         stage('Test') {
-            steps {
-                sh 'mvn test'  // Run unit tests
-            }
-        }
+    steps {
+        sh './gradlew test --no-daemon'
+    }
+}
 
         
         
        
         stage('Run Application') {
-            steps {
-                // Start the JAR application
-                sh 'java -jar target/MyMavenApp-1.0-SNAPSHOT.jar'
-            }
-        }
-
+    steps {
+        sh './gradlew run'
+    }
+}
         
     }
 
