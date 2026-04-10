@@ -11,12 +11,12 @@ pipeline {
             }
         }
 
-       stage('Build') {
-    steps {
-        sh 'chmod +x gradlew'
-        sh './gradlew build'
-    }
-}
+        stage('Build') {
+            steps {
+                sh 'chmod +x gradlew'
+                sh './gradlew build --no-daemon'
+            }
+        }
 
         stage('Test') {
             steps {
