@@ -11,11 +11,12 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'  // Run Maven build
-            }
-        }
+       stage('Build') {
+    steps {
+        sh 'chmod +x gradlew'
+        sh './gradlew build'
+    }
+}
 
         stage('Test') {
             steps {
